@@ -1,0 +1,65 @@
+********************************* THREADS *********************************
+Within a program, a Thread is a separate execution path. It is a 
+lightweight process that the operating system can schedule and run concurrently 
+with other threads. The operating system creates and manages threads, and they 
+share the same memory and resources as the program that created them. This enables 
+multiple threads to collaborate and work efficiently within a single program.
+
+A thread is a single sequence stream within a process. Threads are also called 
+lightweight processes as they possess some of the properties of processes. 
+Each thread belongs to exactly one process. In an operating system that supports 
+multithreading, the process can consist of many threads. 
+
+**************************** Why Multi-Threading? ****************************
+A thread is also known as a lightweight process. The idea is to achieve parallelism 
+by dividing a process into multiple threads. For example, in a browser, multiple 
+tabs can be different threads. MS Word uses multiple threads: one thread to format 
+the text, another thread to process inputs, etc. More advantages of multithreading 
+are discussed below.
+
+Multithreading is a technique used in operating systems to improve the performance 
+and responsiveness of computer systems. Multithreading allows multiple threads (i.e., lightweight processes) 
+to share the same resources of a single process, such as the CPU, memory, and I/O devices.
+
+************************************* CPU *************************************
+
+A processor (CPU) is the logic circuitry that responds to and processes the basic instructions 
+that drive a computer. The CPU is seen as the main and most crucial integrated circuitry (IC) chip 
+in a computer, as it is responsible for interpreting most of computers commands. CPUs will perform most 
+basic arithmetic, logic and I/O operations, as well as allocate commands for other chips and 
+components running in a computer.
+
+*********************** The basic elements of a processor ***********************
+
+ -> The arithmetic logic unit (ALU), which carries out arithmetic and logic operationson the operands in instructions. 
+ -> The floating point unit (FPU), also known as a math coprocessor or numeric coprocessor, a specialized coprocessorthat 
+    manipulates numbers more quickly than the basic microprocessor circuitry can.
+ -> Registers, which hold instructions and other data. Registers supply operands to the ALU and store the results of operations.
+ -> L1 and L2cache memory. Their inclusion in the CPU saves time compared to having to get data from random access memory (RAM).
+
+***************************** CPU Operations *****************************
+
+The four primary functions of a processor are fetch, decode, execute and write back.
+
+ -> Fetch : is the operation which receives instructions from program memory from a systems RAM.
+ -> Decode : is where the instruction is converted to understand which other parts of the CPU are 
+    needed to continue the operation. This is performed by the instruction decoder
+ -> Execute : is where the operation is performed. Each part of the CPU that is needed is activated 
+    to carry out the instructions.
+
+********************* How the processor scheduler works? *********************
+
+            ********************* Definition *********************
+The process scheduling is the activity of the process manager that handles the removal of the running 
+process from the CPU and the selection of another process on the basis of a particular strategy.
+
+Process scheduling is an essential part of a Multiprogramming operating systems. Such operating 
+systems allow more than one process to be loaded into the executable memory at a time and the loaded 
+process shares the CPU using time multiplexing.
+
+            ************** Categories of Scheduling **************
+PCB = Process Control Block
+
+
+
+

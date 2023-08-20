@@ -6,7 +6,7 @@
     create a thread that calcule the sum of a table 
 */
 
-void    *thread(void *tab)
+void    *task(void *tab)
 {
     int *table;
     int sum = 0;
@@ -28,7 +28,15 @@ int main(int ac, char **av)
     for(int i = 1; i < ac ; i++)
         tab[i] = atoi(av[i]);
     // The pthread_create() function starts a new thread in the calling process.
-    pthread_create(&threads, NULL, thread, tab);
-    // The pthread_join() function waits for the thread specified by thread to terminate.
-    pthread_join(threads, NULL);
+    if(pthread_create(&threads, NULL, task, tab))
+        perror("");
+    /* 
+        The pthread_detach() function is used to indicate to the implementation that 
+        storage for the thread thread can be reclaimed when that thread terminates. 
+        If thread has not terminated, pthread_detach() will not cause it to terminate. 
+        The effect of multiple pthread_detach() calls on the same target thread is unspecified.
+    */
+    if (pthread_detach(threads))
+        perror("");
+    usleep(100);
 }

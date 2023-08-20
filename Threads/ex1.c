@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<pthread.h>
 
-void *thread(void *thread_id)
+void *task(void *thread_id)
 {
     int id;
 
@@ -19,7 +19,7 @@ int main(int ac, char **av)
     i = 0;
     while (i < atoi(av[1]))
     {
-        pthread_create(&threads[i], NULL, thread, &i);
+        pthread_create(&threads[i], NULL, task, &i);
         sleep(2);
         i++;
     }

@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:38:01 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/20 20:32:21 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:13:06 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 int	ft_isdigit(int c)
 {

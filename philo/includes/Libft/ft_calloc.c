@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:36:45 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/21 16:20:35 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:13:19 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

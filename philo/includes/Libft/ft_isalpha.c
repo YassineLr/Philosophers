@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:37:31 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/20 20:32:12 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:13:10 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 int	ft_isalpha(int c)
 {

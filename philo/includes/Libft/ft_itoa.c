@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 00:15:50 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/21 16:19:37 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:13:02 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 int	taille(long n)
 {

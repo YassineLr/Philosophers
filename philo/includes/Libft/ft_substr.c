@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 20:38:24 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/21 17:48:08 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:12:16 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 unsigned long	min(unsigned long a, unsigned long b)
 {

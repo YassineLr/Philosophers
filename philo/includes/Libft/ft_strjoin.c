@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:46:49 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/21 08:59:16 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:12:29 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 char	*ft_strjoin(char *s1, char const *s2)
 {

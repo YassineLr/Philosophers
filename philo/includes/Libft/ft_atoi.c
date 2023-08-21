@@ -6,11 +6,25 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:35:23 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/21 16:21:30 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 11:37:47 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
+
+int ft_isnumeric(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if(!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_atoi(const char *s)
 {
@@ -18,6 +32,8 @@ int	ft_atoi(const char *s)
 	int	i;
 	int	sign;
 
+	if(!ft_isnumeric(s))
+		return (0);
 	res = 0;
 	sign = 1;
 	i = 0;

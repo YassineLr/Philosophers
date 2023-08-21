@@ -6,24 +6,24 @@
 #    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 08:47:51 by ylarhris          #+#    #+#              #
-#    Updated: 2023/08/21 09:09:36 by ylarhris         ###   ########.fr        #
+#    Updated: 2023/08/21 11:07:54 by ylarhris         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRC = ./includes/Libft/ft_atoi.c ./includes/Libft/ft_calloc.c ./ft_isalnum.c \
+SRC = ./includes/Libft/ft_atoi.c ./includes/Libft/ft_calloc.c ./includes/Libft/ft_isalnum.c \
 		./includes/Libft/ft_isdigit.c ./includes/Libft/ft_itoa.c ./includes/Libft/ft_split.c \
 		./includes/Libft/ft_strdup.c ./includes/Libft/ft_strjoin.c ./includes/Libft/ft_strlen.c \
-		./ft_substr.c ./includes/Libft/strcmp.c ./includes/Libft/strncmp.c ./includes/Libft/ft_putchar_fd.c \
-		./includchar	*ft_substr(char const *s, unsigned int start, size_t len)
-es/Libft/ft_putstr_fd.c
+		./includes/Libft/ft_substr.c ./includes/Libft/ft_strcmp.c ./includes/Libft/ft_strncmp.c ./includes/Libft/ft_putchar_fd.c \
+		./includes/Libft/ft_putstr_fd.c ./includes/Libft/ft_bzero.c \
+		./src/philo.c ./src/utils.c
 	
 OBJS = ${SRC:.c=.o}
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 .c.o	:
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)

@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 00:25:49 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/21 17:39:17 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:42:23 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 static int	ft_wdcount(char *str, char c)
 {
@@ -47,11 +47,9 @@ static int	ft_lcount(int i, char *str, char sep)
 
 static char	*ft_filling(char *t__t, char *str, char sep, int i)
 {
-	int	j;
 	int	k;
 	int	n;
 
-	j = 0;
 	k = 0;
 	n = ft_lcount(i, str, sep);
 	t__t = (char *) malloc ((n + 1) * sizeof(char));

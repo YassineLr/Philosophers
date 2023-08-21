@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 13:41:17 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/09 13:42:16 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:12:23 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 size_t	ft_strlen(const char *str)
 {

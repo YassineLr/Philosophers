@@ -6,11 +6,11 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 02:37:48 by ylarhris          #+#    #+#             */
-/*   Updated: 2022/10/10 02:37:49 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:12:53 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../philo.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

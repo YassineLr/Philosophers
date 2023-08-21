@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 16:37:05 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/21 11:04:26 by ylarhris         ###   ########.fr       */
+/*   Created: 2022/10/09 16:34:05 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/08/21 09:47:13 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-// int	ft_isalnum(int c)
-// {
-// 	if (ft_isalpha((char)c) == 1 || ft_isdigit(c) == 1)
-// 		return (1);
-// 	return (0);
-// }
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while ((str1[i] != '\0' || str2[i] != '\0') && i < n)
+	{
+		if ((unsigned char)str1[i] > (unsigned char)str2[i])
+			return (1);
+		else if ((unsigned char)str1[i] < (unsigned char)str2[i])
+			return (-1);
+		i++;
+	}
+	return (0);
+}

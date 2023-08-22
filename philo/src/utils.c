@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 09:11:35 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/21 11:29:55 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:21:21 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int		check_args(t_args *args, int ac)
 
 t_args		*args_handler(int ac, char **av)
 {
-	// int 	i;
 	t_args	*args;
 
 	if(ac < 5 || ac > 6)
@@ -81,7 +80,32 @@ t_args		*args_handler(int ac, char **av)
 		args->nofm_to_eat = ft_atoi(av[5]);
 	else
 		args->nofm_to_eat = -1;
+	args->forks = malloc(sizeof(pthread_mutex_t) * args->num_of_philosophers);
 	if(!check_args(args, ac))
 		return (0);
 	return (args);
+}
+
+void *fun(void *philo)
+{
+	t_philo *philosopher;
+	philosopher = (t_philo*) philo;
+	pthread_mutex_lock(&philosopher->lock);
+	printf("hello from %d \n", philosopher->id);
+	return(NULL);
+	pthread_mutex_unlock(&philosopher->lock);
+}
+
+void	start_philos(t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < philo->args->num_of_philosophers)
+	{
+		pthread_create(&philo[i].thread_id, NULL, &fun, &philo[i]);
+		usleep(1000);
+		pthread_detach(philo[i].thread_id);
+		i++;
+	}
 }

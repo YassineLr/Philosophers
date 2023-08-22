@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 08:48:38 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/21 10:49:58 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:21:44 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <pthread.h>
 # include <limits.h>
 
+
 typedef struct s_args
 {
 	int				num_of_philosophers;
@@ -28,8 +29,18 @@ typedef struct s_args
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				nofm_to_eat;
+	pthread_mutex_t	*forks;
 }					t_args;
 
+typedef struct s_philo
+{
+	int			id;
+	t_args		*args;
+	pthread_t 	thread_id;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+	pthread_mutex_t lock;
+}					t_philo;
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -47,5 +58,7 @@ char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 t_args		*args_handler(int ac, char **av);
+t_philo     *init_philos(t_args *args);
+void		start_philos(t_philo *philo);
 
 #endif

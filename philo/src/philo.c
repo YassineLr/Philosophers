@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 09:11:40 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/22 11:03:15 by ylr              ###   ########.fr       */
+/*   Updated: 2023/08/23 08:45:31 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,8 @@ int main(int ac, char **av)
     t_philo    *philos;
     
     args = args_handler(ac, av);
-    // if(args)
-    //     print_args(args);
-    // int i = 0;
+    if(!args)
+        return 0;
     philos = init_philos(args);
-    // while (i < args->num_of_philosophers)
-    // {
-    //     printf("id = %d\n",philos[i].id);
-    //     // printf("thread id = %ld\n",philos[i].thread_id);
-    //     print_args(philos[i].args);
-    //     i++;
-    // }
     start_philos(philos);
 }

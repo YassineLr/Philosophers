@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 09:11:35 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/22 11:21:21 by ylr              ###   ########.fr       */
+/*   Updated: 2023/08/23 11:12:12 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ void *fun(void *philo)
 {
 	t_philo *philosopher;
 	philosopher = (t_philo*) philo;
-	pthread_mutex_lock(&philosopher->lock);
+	pthread_mutex_lock(&philosopher->mutexes.lock);
 	printf("hello from %d \n", philosopher->id);
 	return(NULL);
-	pthread_mutex_unlock(&philosopher->lock);
+	pthread_mutex_unlock(&philosopher->mutexes.lock);
 }
 
 void	start_philos(t_philo *philo)

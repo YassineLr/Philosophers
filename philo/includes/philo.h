@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 08:48:38 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/22 11:21:44 by ylr              ###   ########.fr       */
+/*   Updated: 2023/08/23 11:08:52 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,19 @@ typedef struct s_args
 	pthread_mutex_t	*forks;
 }					t_args;
 
+typedef struct s_mutexes
+{
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+	pthread_mutex_t lock;
+}					t_mutexes;
+
 typedef struct s_philo
 {
 	int			id;
 	t_args		*args;
 	pthread_t 	thread_id;
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*right_fork;
-	pthread_mutex_t lock;
+	t_mutexes	mutexes;
 }					t_philo;
 
 void	ft_putchar_fd(char c, int fd);

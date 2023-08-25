@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 09:11:35 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/24 10:56:16 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:03:40 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_args		*args_handler(int ac, char **av)
 	args->time_to_die = ft_atoi(av[2]);
 	args->time_to_eat = ft_atoi(av[3]);
 	args->time_to_sleep = ft_atoi(av[4]);
+	args->start_time = ft_time();
 	if(av[5])
 		args->nofm_to_eat = ft_atoi(av[5]);
 	else

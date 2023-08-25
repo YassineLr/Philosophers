@@ -29,7 +29,7 @@ void    *updating(void *args){
 
 void    *display(void *args){
     int *arg_array = (int *)args;
-    
+
     for (size_t i = 0; i < 5; i++){
         printf("tab[%ld] = %d\n",i , arg_array[i]);
     }

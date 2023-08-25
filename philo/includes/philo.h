@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 08:48:38 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/24 10:48:15 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:04:11 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <string.h>
 # include <pthread.h>
 # include <limits.h>
+# include <time.h>
+# include <sys/time.h>
 
 typedef struct s_mutexes
 {
@@ -36,6 +38,7 @@ typedef struct s_args
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				nofm_to_eat;
+	long			start_time;
 	t_mutexes		mutexes;
 }					t_args;
 
@@ -64,6 +67,7 @@ char	*ft_strdup(const char *src);
 char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
+long		ft_time(void);
 t_args		*args_handler(int ac, char **av);
 t_philo     *init_philos(t_args *args);
 void		start_philos(t_philo *philo);

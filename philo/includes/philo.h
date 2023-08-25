@@ -6,7 +6,7 @@
 /*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 08:48:38 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/23 11:08:52 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:48:15 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
 # include <pthread.h>
 # include <limits.h>
 
+typedef struct s_mutexes
+{
+	pthread_mutex_t	*forks;
+	pthread_mutex_t print_message;
+	pthread_mutex_t death;
+	pthread_mutex_t lock;
+}					t_mutexes;
 
 typedef struct s_args
 {
@@ -29,22 +36,17 @@ typedef struct s_args
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				nofm_to_eat;
-	pthread_mutex_t	*forks;
+	t_mutexes		mutexes;
 }					t_args;
 
-typedef struct s_mutexes
-{
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*right_fork;
-	pthread_mutex_t lock;
-}					t_mutexes;
 
 typedef struct s_philo
 {
 	int			id;
 	t_args		*args;
 	pthread_t 	thread_id;
-	t_mutexes	mutexes;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
 }					t_philo;
 
 void	ft_putchar_fd(char c, int fd);

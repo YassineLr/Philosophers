@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 08:48:38 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/25 18:04:11 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/26 08:40:06 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_mutexes
 	pthread_mutex_t print_message;
 	pthread_mutex_t death;
 	pthread_mutex_t lock;
+	pthread_mutex_t meal;
 }					t_mutexes;
 
 typedef struct s_args
@@ -46,16 +47,18 @@ typedef struct s_args
 typedef struct s_philo
 {
 	int			id;
+	long		last_meal;
+	int			nbr_of_meal_has_eaten;
 	t_args		*args;
 	pthread_t 	thread_id;
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	left_fork;
+	pthread_mutex_t	right_fork;
 }					t_philo;
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 int	    ft_atoi(const char *s);
-void	ft_bzero(void *s, size_t n);
+void	ft_bzero(void *s, size_t n);	
 void	*ft_calloc(size_t count, size_t size);
 int	    ft_isalnum(int c);
 int	    ft_isalpha(int c);
@@ -71,5 +74,9 @@ long		ft_time(void);
 t_args		*args_handler(int ac, char **av);
 t_philo     *init_philos(t_args *args);
 void		start_philos(t_philo *philo);
+void    print_status(t_philo *philo, char *msg);
+void    take_forks(t_philo  *philo);
+void    eating(t_philo *philo);
+void    *routine(void *philo);
 
 #endif

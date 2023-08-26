@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:55:25 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/25 18:09:57 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/08/26 08:39:35 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/philo.h"
 
 #include "../includes/philo.h"
 
@@ -23,6 +25,8 @@ t_philo        *init_philos(t_args *args)
     {
         philos[i].id = i+1;
         philos[i].args = args;
+        philos[i].right_fork = args->mutexes.forks[i];
+        philos[i].left_fork = args->mutexes.forks[(i+1)%args->num_of_philosophers];
         i++;
     }
     return(philos);
@@ -45,7 +49,7 @@ void	start_philos(t_philo *philo)
 	i = 0;
 	while (i < philo->args->num_of_philosophers)
 	{
-		pthread_create(&philo[i].thread_id, NULL, &fun, &philo[i]);
+		pthread_create(&philo[i].thread_id, NULL, &routine, &philo[i]);
 		usleep(1000);
 		pthread_detach(philo[i].thread_id);
 		i++;

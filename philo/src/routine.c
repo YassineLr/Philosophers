@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   routine.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 14:43:07 by ylarhris          #+#    #+#             */
+/*   Updated: 2023/08/27 03:46:07 by ylarhris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./../includes/philo.h"
 
 void    print_status(t_philo *philo, char *msg)
@@ -36,13 +48,22 @@ void    *routine(void *philo)
 
     philosopher = (t_philo *) philo;
     if (philosopher->id % 2)
-        usleep(500);
+        usleep(1000);
     while (1)
     {
         print_status(philosopher, "is thinking");
 		take_forks(philosopher);
 		eating(philosopher);
 		print_status(philo, "is sleeping");
-        usleep(500);
+        usleep(1000);
     }
 }
+
+// int check_dead(t_philo *philo)
+// {
+//     if(philo->nbr_of_meal_has_eaten >= philo->args->nofm_to_eat)
+//         return (1);
+//     if(ft_time() - philo->last_meal >= philo->args->time_to_die)
+//         return (1);
+//     return (0);
+// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 08:48:38 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/27 03:31:21 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/09/12 23:57:33 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ typedef struct s_args
 	t_mutexes		mutexes;
 }					t_args;
 
-
 typedef struct s_philo
 {
 	int			id;
+	int			is_dead;
 	long		last_meal;
 	int			nbr_of_meal_has_eaten;
 	t_args		*args;
@@ -71,6 +71,7 @@ char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 long		ft_time(void);
+void		ft_usleep(int period);
 t_args		*args_handler(int ac, char **av);
 t_philo     *init_philos(t_args *args);
 void		start_philos(t_philo *philo);
@@ -78,5 +79,6 @@ void    print_status(t_philo *philo, char *msg);
 void    take_forks(t_philo  *philo);
 void    eating(t_philo *philo);
 void    *routine(void *philo);
+int		is_philosopher_dead(t_philo *philo);
 
 #endif

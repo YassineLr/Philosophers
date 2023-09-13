@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:55:25 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/27 17:22:52 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:06:35 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_philo        *init_philos(t_args *args)
     while (i < args->num_of_philosophers)
     {
         philos[i].id = i+1;
+        philos[i].is_dead = 0;
         philos[i].args = args;
         philos[i].right_fork = args->mutexes.forks[i];
         philos[i].left_fork = args->mutexes.forks[(i+1)%args->num_of_philosophers];
@@ -48,8 +49,8 @@ void	start_philos(t_philo *philo)
 	while (i < philo->args->num_of_philosophers)
 	{
 		pthread_create(&philo[i].thread_id, NULL, &routine, &philo[i]);
-		// usleep(1000); 		
-		//pthread_detach(philo[i].thread_id);
+		usleep(1000); 		
+		pthread_detach(philo[i].thread_id);
 		i++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 09:11:35 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/27 17:39:23 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/09/13 08:41:39 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ int			number_of_philo_handler(char *str)
 		return (0);
 	}
 	return (nop);
+}
+
+void	ft_usleep(int sleep_time)
+{
+	long	current_time;
+
+	current_time = ft_time();
+	usleep(sleep_time * 1000 * 0.9);
+	while (ft_time() - current_time < sleep_time)
+		usleep(30);
 }
 
 int			time_handler(char *str)

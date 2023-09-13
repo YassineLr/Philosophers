@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 09:11:40 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/27 03:58:57 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/09/13 00:29:25 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,9 @@ int main(int ac, char **av)
         return 0;
     philos = init_philos(args);
     start_philos(philos);
-    while (1);
+    while (1)
+	{
+		if (is_philosopher_dead(philos))
+			return (1);
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:07 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/08/27 03:46:07 by ylarhris         ###   ########.fr       */
+/*   Updated: 2023/09/13 08:42:03 by ylr              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ void    print_status(t_philo *philo, char *msg)
     pthread_mutex_unlock(&philo->args->mutexes.print_message);
 }
 
-
 void    take_forks(t_philo  *philo)
 {
     pthread_mutex_lock(&philo->left_fork);
-    print_status(philo, "has taken a fork");
+    print_status(philo, "has taken left fork");
     pthread_mutex_lock(&philo->right_fork);
-    print_status(philo, "has taken a fork");
+    print_status(philo, "has taken right fork");
 }
 
 void    eating(t_philo *philo)
@@ -48,14 +47,14 @@ void    *routine(void *philo)
 
     philosopher = (t_philo *) philo;
     if (philosopher->id % 2)
-        usleep(1000);
+        usleep((philosopher->args->time_to_eat / 2) * 1000);
     while (1)
     {
-        print_status(philosopher, "is thinking");
 		take_forks(philosopher);
 		eating(philosopher);
 		print_status(philo, "is sleeping");
-        usleep(1000);
+        ft_usleep(philosopher->args->time_to_sleep);
+        print_status(philosopher, "is thinking");
     }
 }
 

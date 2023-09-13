@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
+#    By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 08:47:51 by ylarhris          #+#    #+#              #
-#    Updated: 2023/08/27 03:43:21 by ylarhris         ###   ########.fr        #
+#    Updated: 2023/09/13 08:59:54 by ylr              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ SRC = ./includes/Libft/ft_atoi.c ./includes/Libft/ft_calloc.c ./includes/Libft/f
 		./includes/Libft/ft_strdup.c ./includes/Libft/ft_strjoin.c ./includes/Libft/ft_strlen.c \
 		./includes/Libft/ft_substr.c ./includes/Libft/ft_strcmp.c ./includes/Libft/ft_strncmp.c \
 		./includes/Libft/ft_putchar_fd.c ./includes/Libft/ft_putstr_fd.c ./includes/Libft/ft_bzero.c \
-		./src/philo.c ./src/utils.c ./src/init.c ./src/routine.c
+		./src/philo.c ./src/utils.c ./src/init.c ./src/routine.c ./src/death.c 
 	
 OBJS = ${SRC:.c=.o}
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=thread
 
 .c.o	:
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)

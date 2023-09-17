@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 09:11:35 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/09/13 15:02:23 by ylr              ###   ########.fr       */
+/*   Updated: 2023/09/17 01:27:33 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
-
-int			number_of_philo_handler(char *str)
-{
-	int nop;
-	
-	nop = ft_atoi(str);
-	if(nop < 0)
-	{
-		ft_putstr_fd("Invalid number of philosophers !\n",2);
-		return (0);
-	}
-	return (nop);
-}
 
 
 int		check_args(t_args *args, int ac)
@@ -69,8 +55,8 @@ t_args		*args_handler(int ac, char **av)
 		args->nofm_to_eat = ft_atoi(av[5]);
 	else
 		args->nofm_to_eat = -1;
-	args->mutexes.forks = malloc(sizeof(pthread_mutex_t) * args->num_of_philosophers);
 	if(!check_args(args, ac))
 		return (0);
+	args->forks = calloc(args->num_of_philosophers, sizeof(pthread_mutex_t));
 	return (args);
 }

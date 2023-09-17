@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+         #
+#    By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 08:47:51 by ylarhris          #+#    #+#              #
-#    Updated: 2023/09/13 15:02:45 by ylr              ###   ########.fr        #
+#    Updated: 2023/09/17 04:14:03 by ylarhris         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ OBJS = ${SRC:.c=.o}
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror 
+CFLAGS += -g3 -fsanitize=address
 
 .c.o	:
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)

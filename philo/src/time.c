@@ -10,14 +10,16 @@ long	ft_time(void)
 	return (time_in_ms);
 }
 
-void	ft_usleep(int sleep_time)
+void	ft_usleep(int time)
 {
-	long	current_time;
+	long	start_time;
+	long	end_time;
 
-	current_time = ft_time();
-	usleep(sleep_time * 1000 * 0.9);
-	while (ft_time() - current_time < sleep_time)
-		usleep(30);
+	start_time = ft_time();
+	usleep(time * 1000);
+	end_time = ft_time();
+	if (end_time - start_time < time)
+		usleep((time - (end_time - start_time)) * 1000);
 }
 
 int			time_handler(char *str)

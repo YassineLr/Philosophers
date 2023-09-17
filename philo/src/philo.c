@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 09:11:40 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/09/13 15:01:09 by ylr              ###   ########.fr       */
+/*   Updated: 2023/09/17 03:31:18 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int main(int ac, char **av)
     
     args = args_handler(ac, av);
     if(!args)
-        return 0;
+        return 1;
+    init_mutexes(args);
     philos = init_philos(args);
     start_philos(philos);
-    while (1)
-	{
-		if (is_philosopher_dead(philos))
-			return (1);
-	}
+    if(check_death(philos) == 0)
+        return 0;
+    if(join_destroy(philos))
+        return 0;
+    return 0;
 }

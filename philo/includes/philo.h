@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylr <ylr@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ylarhris <ylarhris@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 08:48:38 by ylarhris          #+#    #+#             */
-/*   Updated: 2023/09/12 23:57:33 by ylr              ###   ########.fr       */
+/*   Updated: 2023/09/17 01:47:29 by ylarhris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,28 @@
 # include <time.h>
 # include <sys/time.h>
 
-typedef struct s_mutexes
-{
-	pthread_mutex_t	*forks;
-	pthread_mutex_t print_message;
-	pthread_mutex_t death;
-	// pthread_mutex_t lock;
-	pthread_mutex_t meal;
-}					t_mutexes;
-
 typedef struct s_args
 {
 	int				num_of_philosophers;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
+	unsigned long				time_to_die;
+	unsigned long				time_to_eat;
+	unsigned long				time_to_sleep;
 	int				nofm_to_eat;
-	long			start_time;
-	t_mutexes		mutexes;
+	unsigned long	start_time;
+	pthread_mutex_t *forks;
+	pthread_mutex_t	death;
+	pthread_mutex_t	print_msg;
+	pthread_mutex_t meal;
 }					t_args;
 
 typedef struct s_philo
 {
-	int			id;
-	int			is_dead;
-	long		last_meal;
-	int			nbr_of_meal_has_eaten;
-	t_args		*args;
-	pthread_t 	thread_id;
-	pthread_mutex_t	left_fork;
-	pthread_mutex_t	right_fork;
+	int				id;
+	int				is_dead;
+	unsigned long	last_meal;
+	int				nbr_of_meal_has_eaten;
+	t_args			*args;
+	pthread_t 		thread_id;
 }					t_philo;
 
 void	ft_putchar_fd(char c, int fd);
@@ -69,7 +61,7 @@ char	**ft_split(char *str, char sep);
 char	*ft_strdup(const char *src);
 char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
+void		init_mutexes(t_args *args);
 long		ft_time(void);
 void		ft_usleep(int period);
 t_args		*args_handler(int ac, char **av);
@@ -79,6 +71,8 @@ void    print_status(t_philo *philo, char *msg);
 void    take_forks(t_philo  *philo);
 void    eating(t_philo *philo);
 void    *routine(void *philo);
-int		is_philosopher_dead(t_philo *philo);
+int		check_death(t_philo *philo);
+void	ft_usleep(int time);
+int	join_destroy(t_philo *philo);
 
 #endif
